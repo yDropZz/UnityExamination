@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -72,6 +74,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (currentHealth <= 0)
+        {
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(currentSceneName);
+        }
         
         if (isDashing)
             return;
@@ -133,7 +141,15 @@ public class PlayerController : MonoBehaviour
         
 
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "DamageTrigger")
+        {
+            TakeDamage(999);
+        }
+    }
+
     public void GainScore(int amount)
     {
         score += amount;
