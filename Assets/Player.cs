@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     //
 
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI healthText;
     
     public int score = 0;
     
@@ -79,6 +80,7 @@ public class PlayerController : MonoBehaviour
     {
 
         scoreText.text = "Score: " + score;
+        healthText.text = "Health: " + currentHealth;
 
         if (currentHealth <= 0)
         {
