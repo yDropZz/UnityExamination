@@ -21,7 +21,7 @@ public class Bee : MonoBehaviour
             PlayerController player = other.gameObject.GetComponent<PlayerController>(); 
             
             Debug.Log("You caught a bee!");
-            player.GainScore(100);
+            player.GainScore(1);
             
             Destroy(gameObject);
         }
