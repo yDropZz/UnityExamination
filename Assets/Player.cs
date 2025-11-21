@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class PlayerController : MonoBehaviour
     // code taken from here: 
     //
 
+    [SerializeField] private TextMeshProUGUI scoreText;
+    
     public int score = 0;
     
     // HP
@@ -74,6 +77,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        scoreText.text = "Score: " + score;
 
         if (currentHealth <= 0)
         {
